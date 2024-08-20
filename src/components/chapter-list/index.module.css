@@ -1,0 +1,15 @@
+ .chapterListHeader {
+   justify-content: space-between;
+   margin-bottom: 10px;
+ }
+
+ .chapterList {
+   width: 800px;
+   background-color: #1c1c1e;
+   border-color: #000;
+   border-radius: 5px;
+   
+ }
+ .chapterListA {
+  width: 100%;
+}
