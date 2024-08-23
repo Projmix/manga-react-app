@@ -72,8 +72,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             value={settingsTranslate.target_language}
             onChange={(e) => onSettingsChangeTranslate('target_language', e.target.value)}
           >
-            <Radio value="en">Английский</Radio>
-            <Radio value="ja">Японский</Radio>
+            <Radio value="RUS">Русский</Radio>
           </Radio.Group>
         </div>
         <div style={{ marginBottom: 16 }}>
