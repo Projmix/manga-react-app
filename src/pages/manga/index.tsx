@@ -28,10 +28,17 @@ export const Manga = () => {
     return (
       <Row gutter={[16, 16]}>
         {mangaList.map(manga => (
-          <Col span={4} key={manga.id} >
+          <Col
+            key={manga.id}
+            xs={24}   
+            sm={12}    
+            md={8}    
+            lg={6}    
+            xl={4} 
+          >
             <Card
               hoverable
-              cover={<img alt={manga.title} src={manga.image}/>}
+              cover={<img alt={manga.title} src={manga.image} />}
               onClick={() => navigate(`${Paths.manga}/${manga.title}`)}
             >
               <Card.Meta title={manga.title} />
@@ -45,14 +52,14 @@ export const Manga = () => {
   return (
     <Layout>
       <Space direction="vertical">
-      <CustomButton type="primary" onClick={goToAddUser} icon={<PlusCircleOutlined />}>
-        Добавить мангу
-      </CustomButton>
-      {isLoading ? (
-        <span>Загрузка...</span>
-      ) : (
-        renderMangaGrid(data || [])
-      )}
+        <CustomButton type="primary" onClick={goToAddUser} icon={<PlusCircleOutlined />}>
+          Добавить мангу
+        </CustomButton>
+        {isLoading ? (
+          <span>Загрузка...</span>
+        ) : (
+          renderMangaGrid(data || [])
+        )}
       </Space>
     </Layout>
   )

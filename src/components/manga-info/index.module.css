@@ -1,4 +1,17 @@
-.mangaInfo{
+.mangaInfo {
     width: 800px;
+    margin: 0 auto;
+}
 
+@media (max-width: 1024px) {
+    .mangaInfo {
+        width: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mangaInfo {
+        width: 100%;
+        padding: 0 16px;    
+    }
 }

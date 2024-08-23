@@ -106,7 +106,7 @@ export const CurrentManga = () => {
 
   return (
     <Layout>
-      <Space  size="middle" align="start">
+      <Space  size="middle" align="start"  direction={window.innerWidth <= 980 ? "vertical" : "horizontal"}>
           <Image className={styles.mangaImage} src={data.image} alt={data.title} />
           <Space  direction="vertical">
           <Title level={2} style={{ margin: 0 }}>{data.title}</Title>

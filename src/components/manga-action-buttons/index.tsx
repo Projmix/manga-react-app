@@ -11,7 +11,7 @@ interface ActionButtonsProps {
 
 export const ActionButtons: React.FC<ActionButtonsProps> = ({ mangaTitle, showModal }) => {
   return (
-    <Space>
+    <Space direction={window.innerWidth <= 768 ? "vertical" : "horizontal"}>
       <Link to={`/manga/${mangaTitle}/add`}>
         <CustomButton shape="round" type="default" icon={<PlusOutlined />}>
           Новая глава

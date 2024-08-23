@@ -1,15 +1,30 @@
- .chapterListHeader {
-   justify-content: space-between;
-   margin-bottom: 10px;
- }
+.chapterListHeader {
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 
- .chapterList {
-   width: 800px;
-   background-color: #1c1c1e;
-   border-color: #000;
-   border-radius: 5px;
-   
- }
- .chapterListA {
+.chapterList {
+  flex-wrap: nowrap !important;
+  width: 800px;
+  background-color: #1c1c1e;
+  border-color: #000;
+  border-radius: 5px;
+}
+
+
+.chapterListA {
   width: 100%;
 }
+
+@media (max-width: 1024px) {
+  .chapterList {
+      width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chapterList {
+      width: 250px;      
+  }
+}
+
