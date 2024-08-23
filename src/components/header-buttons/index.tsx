@@ -33,7 +33,7 @@ const HeaderButtons: React.FC<HeaderButtonsProps> = ({
       <Button
         icon={showControls ? <EyeInvisibleOutlined /> : <EyeOutlined />}
         onClick={toggleControls}
-        style={{ position: 'fixed', top: 20, left: 20 }}
+        style={{ position: 'fixed', top: 60, left: 20, zIndex: 100 }}
       >
         {showControls ? 'Hide Controls' : 'Show Controls'}
       </Button>

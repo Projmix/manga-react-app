@@ -5,7 +5,6 @@ import { SettingOutlined, RedoOutlined, UndoOutlined, EyeInvisibleOutlined, EyeO
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/auth/authSlice';
 import SettingsModal from '../../components/settings-modal';
-import ImageComponent from '../../components/image-component';
 import { useTranslateMutation } from '../../app/services/translationService';
 import { useGetTranslateChapterMangaQuery, useAddTranslateChapterMangaMutation } from '../../app/services/chapter-manga';
 import { SettingsTranslate, SettingsPage, Chapters } from '../../types';
@@ -16,7 +15,9 @@ import { isMessageError } from '../../utils/is-message-error';
 import { ErrorMessage } from '../../components/error-message';
 import HeaderButtons from '../../components/header-buttons';
 import ImageContainer from '../../components/image-container';
-import styles from './index.module.css'; 
+import ChapterNavigator from '../../components/chapter-navigator';
+
+import styles from './index.module.css';
 
 export const CurrentChapterManga = () => {
   const navigate = useNavigate();
@@ -32,6 +33,9 @@ export const CurrentChapterManga = () => {
 
   const manga = useSelector(selectManga);
   const chapters = useSelector(selectChapters);
+
+  console.log('manga', manga);
+  console.log('chapters', chapters);
 
   const [settingsPage, setSettingsPage] = useState<SettingsPage>({
     readMode: 'horizontal',
@@ -209,17 +213,19 @@ export const CurrentChapterManga = () => {
       }
     }
   };
-  
+
   if (isLoading) {
     return <div>Loading manga</div>;
   }
-  
-  if (error) {
-    return <div>Error loading translation</div>;
-  }
+
 
   return (
     <Layout>
+      <ChapterNavigator
+        mangaTitle={manga?.title || ""}
+        chapters={chapters || []}
+        currentChapterId={mangaChapterId}
+      />
       <HeaderButtons
         showControls={showControls}
         toggleControls={toggleControls}
