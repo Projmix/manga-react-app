@@ -8,7 +8,7 @@ import { isMessageError } from "../../utils/is-message-error";
 import { ErrorMessage } from "../error-message";
 
 interface EditChapterModalProps {
-  visible: boolean;
+  isOpen: boolean;
   chapterName: string;
   images: string[];
   mangaId: string;
@@ -17,7 +17,7 @@ interface EditChapterModalProps {
 }
 
 export const EditChapterModal: React.FC<EditChapterModalProps> = ({
-  visible,
+  isOpen,
   chapterName,
   images,
   mangaId,
@@ -87,7 +87,7 @@ export const EditChapterModal: React.FC<EditChapterModalProps> = ({
 
   return (
     <Modal
-      visible={visible}
+      open={isOpen}
       title="Редактировать главу"
       onCancel={onClose}
       onOk={handleSubmit}

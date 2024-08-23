@@ -128,7 +128,7 @@ export const CurrentManga = () => {
           />
           {selectedChapter && (
             <EditChapterModal
-              visible={isEditModalOpen}
+              isOpen={isEditModalOpen}
               chapterName={selectedChapter.name}
               images={selectedChapter.files.split(',')}
               mangaId={data.id}
