@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Chapters } from "../../types";
-import { Card, Form, Input, Space, Switch, Upload, message, Progress, Layout } from "antd";
+import { Card, Form, Input, Space, Switch, Upload, message, Progress, Layout, Tooltip } from "antd";
 import { CloseOutlined, LinkOutlined, UploadOutlined } from "@ant-design/icons";
 import { CustomInput } from "../custom-input";
 import { ErrorMessage } from "../error-message";
@@ -10,7 +10,7 @@ import { isMessageError } from "../../utils/is-message-error";
 import { RcFile, UploadFile } from "antd/lib/upload/interface";
 import styles from "./index.module.css";
 
-interface ChapterMangaFormProps {
+interface AddChapterMangaFormProps {
   onFinish: (values: Omit<Chapters, "id"> & { path: string }) => void;
   onClose: () => void;
   btnText: string;
@@ -19,7 +19,7 @@ interface ChapterMangaFormProps {
   chapter?: Omit<Chapters, "id"> & { path: string };
 }
 
-export const ChapterMangaForm: React.FC<ChapterMangaFormProps> = ({
+export const AddChapterMangaForm: React.FC<AddChapterMangaFormProps> = ({
   onFinish,
   onClose,
   title,
@@ -106,6 +106,8 @@ export const ChapterMangaForm: React.FC<ChapterMangaFormProps> = ({
                 />
               </>
             ) : (
+                              <Tooltip placement="right" title={<span>.jpg,.jpeg,.png,.zip,.rar</span>}>
+
               <Upload
                 name="files"
                 fileList={fileList}
@@ -114,8 +116,10 @@ export const ChapterMangaForm: React.FC<ChapterMangaFormProps> = ({
                 multiple
                 accept=".jpg,.jpeg,.png,.zip,.rar"
               >
-                <CustomButton icon={<UploadOutlined />}>Загрузить файлы</CustomButton>
+                  <CustomButton icon={<UploadOutlined />}>Загрузить файлы</CustomButton>
               </Upload>
+              </Tooltip>
+
             )}
             <ErrorMessage message={error} />
             <CustomButton htmlType="submit" loading={isFileUploading || isUrlUploading}>
