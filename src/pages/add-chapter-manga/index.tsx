@@ -7,7 +7,7 @@ import { useAddChapterMangaMutation } from '../../app/services/chapter-manga';
 import { Paths } from '../../paths';
 import { isMessageError } from '../../utils/is-message-error';
 import { Layout } from '../../components/layout';
-import { ChapterMangaForm } from '../../components/chapter-manga-form';
+import { AddChapterMangaForm } from '../../components/add-chapter-manga-form';
 import { Row } from 'antd';
 import { selectManga } from '../../features/manga/mangaSlice';
 import { ErrorMessage } from '../../components/error-message';
@@ -54,7 +54,7 @@ export const AddChapterManga = () => {
   return (
     <Layout>
         <Row align='middle' justify='center'>
-            <ChapterMangaForm
+            <AddChapterMangaForm
                 title='Добавить главу'
                 btnText='Добавить'
                 onFinish={ handleAddChapterManga }
