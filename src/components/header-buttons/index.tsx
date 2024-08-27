@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import { SettingOutlined, EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import styles from './index.module.css';
 
 interface HeaderButtonsProps {
   showControls: boolean;
@@ -26,7 +27,7 @@ const HeaderButtons: React.FC<HeaderButtonsProps> = ({
       <Button
         icon={<SettingOutlined />}
         onClick={openSettings}
-        style={{ position: 'fixed', top: 20, right: 20 }}
+        className={styles.settingsButton}
       >
         Настройки
       </Button>
